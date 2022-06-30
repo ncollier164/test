@@ -1,6 +1,7 @@
 import { Contract, Name, TableStore } from 'proton-tsc'
 
 // ... MyRow definition ...
+import {MyRow} from './init_table'
 
 export default MyRow;
 

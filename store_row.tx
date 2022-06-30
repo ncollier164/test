@@ -1,0 +1,17 @@
+import { Contract, Name, TableStore } from 'proton-tsc'
+
+// ... MyRow definition ...
+
+export default MyRow;
+
+@contract
+class MyContract extends Contract {
+  myTable: TableStore<MyRow> = new TableStore<MyRow>(this.receiver)
+
+  @action("action1")
+  myAction(): void {
+    const row = new MyRow(0, Name.fromString("alice"), null)
+    this.myTable.store(row, this.receiver)
+    // this.myTable.set(row, this.receiver) // or upsert
+  }
+}
